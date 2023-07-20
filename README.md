@@ -1,11 +1,13 @@
 
-# Project Name
+# :ticket:tikk
 
-Brief description of the project.
+Open source ticketing
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/your-repo.svg)](https://github.com/yourusername/your-repo/issues)
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/your-repo.svg)](https://github.com/yourusername/your-repo/stargazers)
+[![Static Badge](https://img.shields.io/badge/license-GPL3-style?logo=gnu)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![Static Badge](https://img.shields.io/badge/laravel-x10-style?logo=laravel)](https://laravel.com/)
+[![Static Badge](https://img.shields.io/badge/php-8.1-style?logo=php&color=%232980b9)](https://www.php.net/)
+[![Static Badge](https://img.shields.io/badge/mariadb-latest-style?logo=mariadb&color=%23e67e22)](https://mariadb.org/)
+[![Static Badge](https://img.shields.io/badge/docker-latest-style?logo=docker&color=%233498db)](https://docs.docker.com/compose/compose-file/)
 
 ## Table of Contents
 
