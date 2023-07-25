@@ -8,6 +8,7 @@ Open source ticketing
 [![Static Badge](https://img.shields.io/badge/php-8.1-style?logo=php&color=%232980b9)](https://www.php.net/)
 [![Static Badge](https://img.shields.io/badge/mariadb-latest-style?logo=mariadb&color=%23e67e22)](https://mariadb.org/)
 [![Static Badge](https://img.shields.io/badge/docker-latest-style?logo=docker&color=%233498db)](https://docs.docker.com/compose/compose-file/)
+[![test](https://github.com/annoyingmice/tikk/actions/workflows/test.yml/badge.svg)](https://github.com/annoyingmice/tikk/actions/workflows/test.yml)
 
 ## Table of Contents
 
