@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-07-25T11:49:47.159Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="wBA3uJiPQlPLlbbGATd9" version="21.6.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-07-25T11:51:02.969Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="8-B6Wc3e33zR1-6r2NUa" version="21.6.5" type="github">
   <diagram name="Page-1" id="4tpJejH9Ue2AHnvSj34X">
     <mxGraphModel dx="1366" dy="734" grid="1" gridSize="1" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -63,7 +63,7 @@
           <mxGeometry x="832" y="172" width="70" height="35" as="geometry" />
         </mxCell>
         <mxCell id="M44vIV6eyuSxTf7FfgR5-46" value="Status&lt;br&gt;Ready / Boarding /&amp;nbsp; On sail" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="790" y="459" width="154" height="38" as="geometry" />
+          <mxGeometry x="817" y="451" width="154" height="38" as="geometry" />
         </mxCell>
         <mxCell id="M44vIV6eyuSxTf7FfgR5-47" value="Shipping Inc." style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="222" y="661" width="112" height="112" as="geometry" />
@@ -85,10 +85,10 @@
           <mxGeometry x="659" y="436" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="M44vIV6eyuSxTf7FfgR5-52" value="Ship&lt;br&gt;Type / Capacity / Schedule" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="819" y="453" width="146" height="39" as="geometry" />
+          <mxGeometry x="817" y="405" width="146" height="39" as="geometry" />
         </mxCell>
         <mxCell id="M44vIV6eyuSxTf7FfgR5-53" value="Type&lt;br&gt;Economy / First Class" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="819" y="410" width="144" height="36" as="geometry" />
+          <mxGeometry x="817" y="362" width="144" height="36" as="geometry" />
         </mxCell>
         <mxCell id="M44vIV6eyuSxTf7FfgR5-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="M44vIV6eyuSxTf7FfgR5-54" edge="1">
           <mxGeometry relative="1" as="geometry">
