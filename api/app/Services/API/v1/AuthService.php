@@ -4,6 +4,8 @@ namespace App\Services\API\v1;
 
 use App\Dto\API\v1\LoginDto;
 use App\Dto\API\v1\VerifyDto;
+use App\Enums\ResponseMessage;
+use App\Enums\ResponseType;
 use App\Exceptions\HttpException;
 use App\Libs\JsonWebToken;
 use App\Libs\Otp;
@@ -72,6 +74,12 @@ class AuthService
         // append otp code to user class
         $arr['otp_code'] = $dto->otp;
 
-        return ['access_token' => $this->jwt->token($arr)];
+        return [
+            'message' => ResponseMessage::SUCCESS,
+            'type' => ResponseType::GET,
+            'data' => [
+                'access_token' => $this->jwt->token($arr),
+            ],
+        ];
     }
 }

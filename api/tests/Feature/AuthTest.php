@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use stdClass;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
@@ -47,6 +48,16 @@ class AuthTest extends TestCase
     {
         $response = $this->postJson("$this->baseV1/verify", ['otp' => '123455']);
         $response->assertStatus(404);
+        $response->dump();
+    }
+
+    public function test_should_get_current_auth_user(): void
+    {
+        $response = $this->postJson("$this->baseV1/verify", ['otp' => '123456']);
+        $token = json_decode($response->getContent(), true)['data']['access_token'];
+        $response = $this->getJson("$this->baseV1/auth", ['Authorization' => "Bearer $token"]);
+        $response->assertStatus(200)
+            ->assertJsonIsObject();
         $response->dump();
     }
 }
