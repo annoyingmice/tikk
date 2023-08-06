@@ -4,6 +4,7 @@ use App\Enums\ResponseMessage;
 use App\Http\Controllers\API\v1\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Enums\ResponseType;
+use App\Http\Controllers\API\v1\RoleController;
 use Illuminate\Http\Response;
 
 /*
@@ -20,6 +21,11 @@ use Illuminate\Http\Response;
 Route::post('login', [AuthController::class, 'login']);
 Route::post('verify', [AuthController::class, 'verify']);
 
+Route::middleware('auth:api')->group(function () {
+    Route::resource('roles', RoleController::class);
+    Route::resource('permissions', RoleController::class);
+});
+
 
 // Get current active user
 Route::get(
@@ -33,3 +39,16 @@ Route::get(
         Response::HTTP_OK
     )
 )->middleware('auth:api');
+
+Route::get(
+    '/healthcheck',
+    fn () =>
+    response()->json(
+        [
+            "message" => ResponseMessage::SUCCESS,
+            "type" => ResponseType::GET,
+            "data" => [],
+        ],
+        200
+    )
+);

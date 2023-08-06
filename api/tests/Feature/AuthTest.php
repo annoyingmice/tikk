@@ -11,8 +11,6 @@ class AuthTest extends TestCase
 {
     use RefreshDatabase;
 
-    private $baseV1 = '/api/v1';
-
     /**
      * It should test login successfully
      */
@@ -53,11 +51,17 @@ class AuthTest extends TestCase
 
     public function test_should_get_current_auth_user(): void
     {
-        $response = $this->postJson("$this->baseV1/verify", ['otp' => '123456']);
-        $token = json_decode($response->getContent(), true)['data']['access_token'];
-        $response = $this->getJson("$this->baseV1/auth", ['Authorization' => "Bearer $token"]);
+        $response = $this->getJson("$this->baseV1/auth", ['Authorization' => "Bearer $this->token"]);
         $response->assertStatus(200)
             ->assertJsonIsObject();
+        $response->dump();
+    }
+
+    public function test_should_fail_to_get_current_auth_user(): void
+    {
+        $token = '';
+        $response = $this->getJson("$this->baseV1/auth", ['Authorization' => "Bearer $token"]);
+        $response->assertStatus(500);
         $response->dump();
     }
 }

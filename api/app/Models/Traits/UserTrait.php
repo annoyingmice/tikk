@@ -3,6 +3,7 @@
 namespace App\Models\Traits;
 
 use App\Models\Otp;
+use App\Models\Role;
 
 trait UserTrait
 {
@@ -14,5 +15,10 @@ trait UserTrait
     public function activeOtp()
     {
         return $this->otps()->whereNull('revoke_at')->orderBy('created_at', 'desc')->first();
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
     }
 }

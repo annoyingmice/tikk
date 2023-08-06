@@ -9,7 +9,7 @@ use App\Enums\ResponseType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\v1\LoginRequest;
 use App\Http\Requests\API\v1\VerifyRequest;
-use App\Services\API\v1\APIBaseService as v1;
+use App\Services\API\APIBaseService;
 use App\Http\Resources\API\v1\GenericResource;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -19,7 +19,7 @@ class AuthController extends Controller
 {
     private $service;
 
-    public function __construct(v1 $authService)
+    public function __construct(APIBaseService $authService)
     {
         $this->service = $authService;
     }
@@ -33,7 +33,7 @@ class AuthController extends Controller
     {
         try {
             return new GenericResource(
-                $this->service->login(
+                $this->service->v1Login(
                     LoginDto::fromRequest($request),
                 ),
             );
@@ -57,7 +57,7 @@ class AuthController extends Controller
     {
         try {
             return new GenericResource(
-                $this->service->verify(
+                $this->service->v1Verify(
                     VerifyDto::fromRequest($request),
                 ),
             );

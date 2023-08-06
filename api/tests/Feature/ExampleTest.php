@@ -2,17 +2,19 @@
 
 namespace Tests\Feature;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * A basic test example.
      */
-    public function test_should_always_ok(): void
+    public function test_should_ok_v1(): void
     {
-        $response = $this->get('/healthcheck');
+        $response = $this->get("$this->baseV1/healthcheck");
 
         $response->assertStatus(200);
     }

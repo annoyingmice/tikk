@@ -12,12 +12,12 @@ use App\Libs\Otp;
 use App\Models\User;
 use Illuminate\Http\Response;
 
-class AuthService
+trait AuthTrait
 {
     private $otp;
     private $jwt;
 
-    public function __construct()
+    public function __v1InitializeAuth()
     {
         $this->otp = new Otp();
         $this->jwt = new JsonWebToken();
@@ -27,7 +27,7 @@ class AuthService
      * @param LoginDto $dto
      * @return User
      */
-    public function login(LoginDto $dto): User
+    public function v1Login(LoginDto $dto): User
     {
         $user = User::where('phone', $dto->phone)->first();
 
@@ -43,7 +43,7 @@ class AuthService
      * @param VerifyDto $dto
      * @return User
      */
-    public function verify(VerifyDto $dto): array
+    public function v1Verify(VerifyDto $dto): array
     {
         $user = User::whereHas('otps', function ($query) use ($dto) {
             $query->where('otp', $dto->otp)

@@ -7,6 +7,7 @@ use Firebase\JWT\Key;
 use App\Libs\Seclib;
 use UnexpectedValueException;
 use stdClass;
+use Error;
 
 class JsonWebToken
 {
@@ -37,8 +38,12 @@ class JsonWebToken
      * @param string $credentials
      * @return stdClass
      */
-    public static function credentials(string $token): stdClass|UnexpectedValueException
+    public static function credentials(?string $token): stdClass|UnexpectedValueException
     {
+        if (!$token) {
+            throw new Error('Invalid credentials, please try again.', 500);
+        }
+
         try {
             return JWT::decode($token, new Key(Seclib::publicKey(), JsonWebToken::KEY_TYPE));
         } catch (UnexpectedValueException $e) {
@@ -48,7 +53,7 @@ class JsonWebToken
 
     /**
      * Serialize decoded credentials for guard
-     * @param stdClass $credentials
+     * @param ?stdClass $credentials
      * @return array
      */
     public static function serializeGuard(stdClass $credentials): array
