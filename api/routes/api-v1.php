@@ -1,10 +1,12 @@
 <?php
 
 use App\Enums\ResponseMessage;
-use App\Http\Controllers\API\v1\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Enums\ResponseType;
 use App\Http\Controllers\API\v1\RoleController;
+use App\Http\Controllers\API\v1\PermissionController;
+use App\Http\Controllers\API\v1\AuthController;
+use App\Http\Controllers\API\v1\UserController;
 use Illuminate\Http\Response;
 
 /*
@@ -24,6 +26,7 @@ Route::post('verify', [AuthController::class, 'verify']);
 Route::middleware('auth:api')->group(function () {
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', RoleController::class);
+    Route::resource('users', UserController::class);
 });
 
 
