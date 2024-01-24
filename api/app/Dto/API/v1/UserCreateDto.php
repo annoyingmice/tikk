@@ -19,8 +19,8 @@ class UserCreateDto
 
     /**
      * Serialize request
-     * @param RoleCreateRequest $request
-     * @return RoleCreateDto
+     * @param UserCreateRequest $request
+     * @return UserCreateDto
      */
     public static function fromRequest(UserCreateRequest $request): UserCreateDto
     {

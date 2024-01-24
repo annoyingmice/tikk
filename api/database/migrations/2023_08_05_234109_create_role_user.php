@@ -23,7 +23,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('users');
 
-            $table->primary(['role_id', 'user_id']);
+            // $table->primary(['role_id', 'user_id']);
         });
     }
 

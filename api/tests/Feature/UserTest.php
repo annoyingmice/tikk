@@ -15,7 +15,6 @@ class UserTest extends TestCase
         $response = $this->get("$this->baseV1/users?limit=1", ['Authorization' => "Bearer $this->token"]);
         $response->assertStatus(200)
             ->assertJsonIsObject();
-        $response->dump();
     }
 
     public function test_should_create_user(): void
@@ -32,7 +31,6 @@ class UserTest extends TestCase
         ], ['Authorization' => "Bearer $this->token"]);
         $response->assertStatus(201)
             ->assertJsonIsObject();
-        $response->dump();
     }
 
     public function test_should_update_user(): void
@@ -49,22 +47,19 @@ class UserTest extends TestCase
         ], ['Authorization' => "Bearer $this->token"]);
         $response->assertStatus(200)
             ->assertJsonIsObject();
-        $response->dump();
     }
 
-    public function test_should_show_user()
+    public function test_should_show_user(): void
     {
         $response = $this->get("$this->baseV1/users/1", ['Authorization' => "Bearer $this->token"]);
         $response->assertStatus(200)
             ->assertJsonIsObject();
-        $response->dump();
     }
 
-    public function test_should_delete_user()
+    public function test_should_delete_user(): void
     {
         $response = $this->get("$this->baseV1/users/1", ['Authorization' => "Bearer $this->token"]);
         $response->assertStatus(200)
             ->assertJsonIsObject();
-        $response->dump();
     }
 }
