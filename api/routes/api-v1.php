@@ -9,6 +9,8 @@ use App\Http\Controllers\API\v1\AuthController;
 use App\Http\Controllers\API\v1\UserController;
 use App\Http\Controllers\API\v1\UserRoleController;
 use App\Http\Controllers\API\v1\RolePermissionController;
+use App\Http\Controllers\API\v1\CompanyController;
+use App\Http\Controllers\API\v1\RideTypeController;
 use Illuminate\Http\Response;
 
 /*
@@ -29,6 +31,8 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', RoleController::class);
     Route::resource('users', UserController::class);
+    Route::resource('companies', CompanyController::class);
+    Route::resource('ride-types', RideTypeController::class);
     Route::resource('user-roles', UserRoleController::class);
     Route::resource('role-permissions', RolePermissionController::class);
 });

@@ -8,10 +8,19 @@ use App\Services\API\v1\RoleTrait;
 use App\Services\API\v1\UserTrait;
 use App\Services\API\v1\UserRoleTrait;
 use App\Services\API\v1\RolePermissionTrait;
+use App\Services\API\v1\CompanyTrait;
+use App\Services\API\v1\RideTypeTrait;
 
 class APIServicev1 {
 
-    use AuthTrait, RoleTrait, PermissionTrait, UserTrait, UserRoleTrait, RolePermissionTrait;
+    use AuthTrait,
+        RoleTrait,
+        PermissionTrait,
+        UserTrait,
+        UserRoleTrait,
+        RolePermissionTrait,
+        CompanyTrait,
+        RideTypeTrait;
 
     public function __construct()
     {
@@ -21,6 +30,8 @@ class APIServicev1 {
         $this->__v1InitializeUser();
         $this->__v1InitializeUserRole();
         $this->__v1InitializeRolePermission();
+        $this->__v1InitializeCompany();
+        $this->__v1InitializeRideType();
     }
     
 }

@@ -8,6 +8,8 @@ use App\Models\Otp;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Permission;
+use App\Models\Company;
+use App\Models\RideType;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +28,9 @@ class DatabaseSeeder extends Seeder
                         Permission::factory()
                     )
             )->create();
+        
+        Company::factory()->create();
+        RideType::factory()->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

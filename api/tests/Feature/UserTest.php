@@ -36,7 +36,7 @@ class UserTest extends TestCase
     public function test_should_update_user(): void
     {
         $response = $this->putJson("$this->baseV1/users/1", [
-            'first_name' => 'test', 
+            'first_name' => 'test',
             'middle_name' => null,
             'last_name' => 'test',
             'phone' => '09123456789',
