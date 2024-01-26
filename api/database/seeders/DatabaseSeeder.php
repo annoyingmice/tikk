@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Permission;
 use App\Models\Company;
 use App\Models\RideType;
+use App\Models\Schedule;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
         
         Company::factory()->create();
         RideType::factory()->create();
+        Schedule::factory()->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
