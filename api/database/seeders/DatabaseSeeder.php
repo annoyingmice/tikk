@@ -11,6 +11,7 @@ use App\Models\Permission;
 use App\Models\Company;
 use App\Models\RideType;
 use App\Models\Ride;
+use App\Models\Seat;
 use App\Models\Schedule;
 use Illuminate\Database\Seeder;
 
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
         RideType::factory()->create();
         Schedule::factory()->create();
         Ride::factory()->create();
+        Seat::factory()->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

@@ -11,6 +11,7 @@ use App\Services\API\v1\RolePermissionTrait;
 use App\Services\API\v1\CompanyTrait;
 use App\Services\API\v1\RideTypeTrait;
 use App\Services\API\v1\RideTrait;
+use App\Services\API\v1\SeatTrait;
 use App\Services\API\v1\ScheduleTrait;
 
 class APIServicev1 {
@@ -24,7 +25,8 @@ class APIServicev1 {
         CompanyTrait,
         RideTypeTrait,
         ScheduleTrait,
-        RideTrait;
+        RideTrait,
+        SeatTrait;
 
     public function __construct()
     {
@@ -38,6 +40,7 @@ class APIServicev1 {
         $this->__v1InitializeRideType();
         $this->__v1InitializeRide();
         $this->__v1InitializeSchedule();
+        $this->__v1InitializeSeat();
     }
     
 }
