@@ -11,6 +11,7 @@ use App\Http\Controllers\API\v1\UserRoleController;
 use App\Http\Controllers\API\v1\RolePermissionController;
 use App\Http\Controllers\API\v1\CompanyController;
 use App\Http\Controllers\API\v1\RideTypeController;
+use App\Http\Controllers\API\v1\RideController;
 use App\Http\Controllers\API\v1\ScheduleController;
 use Illuminate\Http\Response;
 
@@ -34,6 +35,7 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('companies', CompanyController::class);
     Route::resource('schedules', ScheduleController::class);
+    Route::resource('rides', RideController::class);
     Route::resource('ride-types', RideTypeController::class);
     Route::resource('user-roles', UserRoleController::class);
     Route::resource('role-permissions', RolePermissionController::class);
