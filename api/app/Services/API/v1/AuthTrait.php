@@ -4,18 +4,20 @@ namespace App\Services\API\v1;
 
 use App\Dto\API\v1\LoginDto;
 use App\Dto\API\v1\VerifyDto;
+use App\Enums\ResponseMessage;
+use App\Enums\ResponseType;
 use App\Exceptions\HttpException;
 use App\Libs\JsonWebToken;
 use App\Libs\Otp;
 use App\Models\User;
 use Illuminate\Http\Response;
 
-class AuthService
+trait AuthTrait
 {
     private $otp;
     private $jwt;
 
-    public function __construct()
+    public function __v1InitializeAuth()
     {
         $this->otp = new Otp();
         $this->jwt = new JsonWebToken();
@@ -25,7 +27,7 @@ class AuthService
      * @param LoginDto $dto
      * @return User
      */
-    public function login(LoginDto $dto): User
+    public function v1Login(LoginDto $dto): User
     {
         $user = User::where('phone', $dto->phone)->first();
 
@@ -41,7 +43,7 @@ class AuthService
      * @param VerifyDto $dto
      * @return User
      */
-    public function verify(VerifyDto $dto): array
+    public function v1Verify(VerifyDto $dto): array
     {
         $user = User::whereHas('otps', function ($query) use ($dto) {
             $query->where('otp', $dto->otp)
@@ -72,6 +74,12 @@ class AuthService
         // append otp code to user class
         $arr['otp_code'] = $dto->otp;
 
-        return ['access_token' => $this->jwt->token($arr)];
+        return [
+            'message' => ResponseMessage::SUCCESS,
+            'type' => ResponseType::GET,
+            'data' => [
+                'access_token' => $this->jwt->token($arr),
+            ],
+        ];
     }
 }

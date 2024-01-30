@@ -3,7 +3,12 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+
+use App\Libs\JsonWebToken;
+use App\Models\Guard;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,6 +26,15 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Auth::viaRequest(
+            'jwt',
+            fn (Request $request) => new Guard(
+                JsonWebToken::serializeGuard(
+                    JsonWebToken::credentials(
+                        $request->bearerToken()
+                    )
+                )
+            )
+        );
     }
 }

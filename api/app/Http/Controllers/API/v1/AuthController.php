@@ -4,10 +4,12 @@ namespace App\Http\Controllers\API\v1;
 
 use App\Dto\API\v1\LoginDto;
 use App\Dto\API\v1\VerifyDto;
+use App\Enums\ResponseMessage;
+use App\Enums\ResponseType;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\v1\LoginRequest;
 use App\Http\Requests\API\v1\VerifyRequest;
-use App\Services\API\v1\AuthService;
+use App\Services\API\APIBaseService;
 use App\Http\Resources\API\v1\GenericResource;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -17,7 +19,7 @@ class AuthController extends Controller
 {
     private $service;
 
-    public function __construct(AuthService $authService)
+    public function __construct(APIBaseService $authService)
     {
         $this->service = $authService;
     }
@@ -31,12 +33,18 @@ class AuthController extends Controller
     {
         try {
             return new GenericResource(
-                $this->service->login(
+                $this->service->v1Login(
                     LoginDto::fromRequest($request),
                 ),
             );
         } catch (Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode());
+            return response()->json([
+                'message' => ResponseMessage::ERROR,
+                'type' => ResponseType::EXCEPTION,
+                'data' => [
+                    'message' => $e->getMessage()
+                ],
+            ], $e->getCode());
         }
     }
 
@@ -49,12 +57,18 @@ class AuthController extends Controller
     {
         try {
             return new GenericResource(
-                $this->service->verify(
+                $this->service->v1Verify(
                     VerifyDto::fromRequest($request),
                 ),
             );
         } catch (Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode());
+            return response()->json([
+                'message' => ResponseMessage::ERROR,
+                'type' => ResponseType::EXCEPTION,
+                'data' => [
+                    'message' => $e->getMessage()
+                ],
+            ], $e->getCode());
         }
     }
 }

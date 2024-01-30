@@ -2,8 +2,6 @@
 
 namespace App\Services\API;
 
-use App\Services\API\v1\AuthService;
+use App\Services\API\APIServicev1;
 
-class APIBaseService extends AuthService
-{
-}
+class APIBaseService extends APIServicev1 {}

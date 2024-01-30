@@ -25,9 +25,9 @@ class Seclib
 
     /**
      * Get the private key
-     * @return string|null
+     * @return ?string
      */
-    public static function privateKey(): string|null
+    public static function privateKey(): ?string
     {
         $filepath = 'rsa/' . Seclib::RSA_PRIVATE;
         if (Storage::disk('local')->exists($filepath)) {
@@ -39,9 +39,9 @@ class Seclib
 
     /**
      * Get the public key
-     * @return string|null
+     * @return ?string
      */
-    public static function publicKey(): string|null
+    public static function publicKey(): ?string
     {
         $filepath = 'rsa/' . Seclib::RSA_PUBLIC;
         if (Storage::disk('local')->exists($filepath)) {
