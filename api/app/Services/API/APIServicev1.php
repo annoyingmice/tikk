@@ -12,6 +12,7 @@ use App\Services\API\v1\CompanyTrait;
 use App\Services\API\v1\RideTypeTrait;
 use App\Services\API\v1\RideTrait;
 use App\Services\API\v1\SeatTrait;
+use App\Services\API\v1\SeatLogTrait;
 use App\Services\API\v1\ScheduleTrait;
 
 class APIServicev1 {
@@ -26,7 +27,8 @@ class APIServicev1 {
         RideTypeTrait,
         ScheduleTrait,
         RideTrait,
-        SeatTrait;
+        SeatTrait,
+        SeatLogTrait;
 
     public function __construct()
     {
@@ -41,6 +43,7 @@ class APIServicev1 {
         $this->__v1InitializeRide();
         $this->__v1InitializeSchedule();
         $this->__v1InitializeSeat();
+        $this->__v1InitializeSeatLog();
     }
     
 }
